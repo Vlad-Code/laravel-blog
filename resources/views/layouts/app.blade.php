@@ -12,8 +12,6 @@
         <meta name="msapplication-TileColor" content="#7843E9">
         <meta name="theme-color" content="#7843E9">
 
-        <link rel="stylesheet" href="compiled/css/app.css">
-        <script src="compiled/js/app.js"></script>
 
         <title>@yield('title', config('app.name'))</title>
         @vite(['resources/js/app.js'])

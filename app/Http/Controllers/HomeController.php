@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Category;
 use App\Models\User;
 use Carbon\Factory;
 use Illuminate\Foundation\Application;
@@ -12,10 +14,8 @@ class HomeController extends Controller
 {
     public function __invoke(): Factory|View|Application
     {
-        /*$user = User::query()->get();
 
-        dd($user);*/
-
-        return view('index');
+        $latestArticles = Article::with('categories')->latest()->take(6)->get();
+        return view('index', compact('latestArticles'));
     }
 }
